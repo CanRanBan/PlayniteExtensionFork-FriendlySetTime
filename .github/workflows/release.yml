@@ -21,19 +21,19 @@ jobs:
       - name: Build (DotNET4.6.2)
         run: |
            cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
-           .\MSBuild.exe $Env:GITHUB_WORKSPACE\FriendlySetTime.sln -p:Configuration=Release -restore
+           .\MSBuild.exe $env:GITHUB_WORKSPACE\FriendlySetTime.sln -p:Configuration=Release -restore
 
       - name: Setup Playnite
         run: |
-           Invoke-WebRequest -Uri "https://github.com/JosefNemec/Playnite/releases/download/10.9/Playnite109.zip" -OutFile "$Env:GITHUB_WORKSPACE\Playnite.zip"
-           Expand-Archive "$Env:GITHUB_WORKSPACE\Playnite.zip" -DestinationPath "$Env:GITHUB_WORKSPACE\Playnite"
+           Invoke-WebRequest -Uri "https://github.com/JosefNemec/Playnite/releases/download/10.9/Playnite109.zip" -OutFile "$env:GITHUB_WORKSPACE\Playnite.zip"
+           Expand-Archive "$env:GITHUB_WORKSPACE\Playnite.zip" -DestinationPath "$env:GITHUB_WORKSPACE\Playnite"
 
       - name: Pack with Playnite
         run: |
-           cd "$Env:GITHUB_WORKSPACE\Playnite"
-           .\Toolbox.exe pack "$Env:GITHUB_WORKSPACE\bin\Release\" "$Env:GITHUB_WORKSPACE\"
-           cd "$Env:GITHUB_WORKSPACE"
-           Get-ChildItem -Filter *.pext | Rename-Item -NewName FriendlySetTime_$GITHUB_REF_NAME.pext
+           cd "$env:GITHUB_WORKSPACE\Playnite"
+           .\Toolbox.exe pack "$env:GITHUB_WORKSPACE\bin\Release\" "$env:GITHUB_WORKSPACE\"
+           cd "$env:GITHUB_WORKSPACE"
+           Get-ChildItem -Filter *.pext | Rename-Item -NewName "FriendlySetTime_${{ github.ref_name }}.pext"
 
       - name: Release
         uses: softprops/action-gh-release@v1
