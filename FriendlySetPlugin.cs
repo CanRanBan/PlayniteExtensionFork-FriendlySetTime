@@ -61,7 +61,9 @@ namespace FriendlySetTime
                 window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
                 window.ShowDialog();
-            } catch (Exception E) {
+            }
+            catch (Exception E)
+            {
                 logger.Error(E, "Error during creatin set time window");
                 PlayniteApi.Dialogs.ShowErrorMessage(E.Message, "Error during set time");
             }
