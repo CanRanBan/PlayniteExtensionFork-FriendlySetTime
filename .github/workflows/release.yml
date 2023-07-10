@@ -25,7 +25,7 @@ jobs:
 
       - name: Setup Playnite
         run: |
-           Invoke-WebRequest -Uri "https://github.com/JosefNemec/Playnite/releases/download/10.9/Playnite109.zip" -OutFile "${{ github.workspace }}\Playnite.zip"
+           Invoke-WebRequest -Uri "https://github.com/JosefNemec/Playnite/releases/download/10.18/Playnite1018.zip" -OutFile "${{ github.workspace }}\Playnite.zip"
            Expand-Archive "${{ github.workspace }}\Playnite.zip" -DestinationPath "${{ github.workspace }}\Playnite"
 
       - name: Pack with Playnite
