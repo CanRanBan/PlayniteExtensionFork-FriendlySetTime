@@ -7,8 +7,8 @@
     <ProjectGuid>{4FDF1E89-5BC3-4C72-8FDA-0D580E7A5D5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlySetTime</RootNamespace>
-    <AssemblyName>FriendlySetTime</AssemblyName>
+    <RootNamespace>FriendlySetPlaytime</RootNamespace>
+    <AssemblyName>FriendlySetPlaytime</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
