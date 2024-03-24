@@ -1,12 +1,15 @@
-AddonId: 'FriendlySetTime_1f05ed2e-f22d-45e0-8e81-16378a8464c7'
+AddonId: erys_Generic_FriendlySetPlayTime
 Type: Generic
-Name: 'Friendly Set Playtime'
-Author: 'erys'
-InstallerManifestUrl: https://raw.githubusercontent.com/erys/FriendlySetTimePlaynitePlugin/master/FriendlySetTime.yaml
-ShortDescription: 'Adds game menu item to set playtime for a game in hours and minutes. You can also set the completion status at the same time.'
-Tags: ['Playtime', 'Metadata']
-SourceUrl: https://github.com/erys/FriendlySetTimePlaynitePlugin
-IconUrl: https://raw.githubusercontent.com/erys/FriendlySetTimePlaynitePlugin/master/icon.png
+IconUrl: https://raw.githubusercontent.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime/main/Source/Resources/FriendlySetPlayTimeIcon.ico
+Name: Friendly Set Play Time
+ShortDescription: Adds an item in the more menu of games to simplify the input of play time values.
+Author: erys
+SourceUrl: https://github.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime
 Links:
-    Forum: https://playnite.link/forum/thread-948.html
-    GitHub: https://github.com/erys/FriendlySetTimePlaynitePlugin
+    GitHub (Source code): https://github.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime
+    Wiki (Introduction and Help): https://github.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime/wiki
+    Playnite Discord (#extensions-support): https://discord.com/channels/365863063296933888/808419165311467630
+    Issues (Feature requests and Bugs): https://github.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime/issues
+InstallerManifestUrl: https://raw.githubusercontent.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime/main/Manifests/PackageInstaller/erys_Generic_FriendlySetPlayTime.yaml
+Description: The "Friendly Set Play Time" Playnite extension adds an item in the more menu of games to simplify the input of play time values. The possibility to input minutes, hours and days besides the default input of seconds is added.
+Tags: ["erys", "Friendly", "Set", "Play", "Time", "Simplify", "Input", "Menu", "Item", "Days", "Hours", "Minutes", "Seconds"]
