@@ -7,8 +7,8 @@
     <ProjectGuid>{4FDF1E89-5BC3-4C72-8FDA-0D580E7A5D5F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FriendlySetPlaytime</RootNamespace>
-    <AssemblyName>FriendlySetPlaytime</AssemblyName>
+    <RootNamespace>FriendlySetPlayTime</RootNamespace>
+    <AssemblyName>FriendlySetPlayTime</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -106,9 +106,9 @@
     <Exec Command="%22$(Playnite_Toolbox_Dir)\Toolbox.exe%22 pack %22$(TargetDir.TrimEnd('\'))%22 %22$(Playnite_Toolbox_TargetDir)%22" />
   </Target>
   <Target Name="PostBuildUpgrade" AfterTargets="PostBuildEvent" Condition="('$(Configuration)' == 'ReleaseUpgrade') AND  ('$(Playnite_Source_Dir)' != '') AND ('$(Playnite_Extensions_Dir)' != '')">
-    <Exec IgnoreExitCode="true" Command="robocopy %22$(TargetDir.TrimEnd('\'))%22 %22$(Playnite_Extensions_Dir)\erys_Generic_FriendlySetPlaytime%22 /mir /copy:DAT /dcopy:DAT /xf %22Playnite.SDK.???%22 /unilog:%22$(Playnite_Source_Dir)\RoboCopy - Logs\RoboCopy - Log - ReleaseUpgrade - Friendly Set Playtime.txt%22">
+    <Exec IgnoreExitCode="true" Command="robocopy %22$(TargetDir.TrimEnd('\'))%22 %22$(Playnite_Extensions_Dir)\erys_Generic_FriendlySetPlayTime%22 /mir /copy:DAT /dcopy:DAT /xf %22Playnite.SDK.???%22 /unilog:%22$(Playnite_Source_Dir)\RoboCopy - Logs\RoboCopy - Log - ReleaseUpgrade - Friendly Set Play Time.txt%22">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
-    <Error Condition="$(ErrorCode) > 7" Text="RoboCopy failed during copy operation of Friendly Set Playtime project." />
+    <Error Condition="$(ErrorCode) > 7" Text="RoboCopy failed during copy operation of Friendly Set Play Time project." />
   </Target>
 </Project>
