@@ -24,7 +24,7 @@ SOFTWARE.
 
 ------------------------------------------------------------------------------
 
-Original source code of Friendly Set Time Playnite Plugin:
+Original source code of Friendly Set Play Time:
 
 MIT License
 
