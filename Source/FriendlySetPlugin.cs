@@ -8,7 +8,6 @@ using Playnite.SDK.Plugins;
 
 namespace FriendlySetPlayTime
 {
-    // renamed this from FriendlySetTime because visual studio was getting confused about the same namespace+name
     public class FriendlySetPlugin : GenericPlugin
     {
         private static readonly ILogger logger = LogManager.GetLogger();
