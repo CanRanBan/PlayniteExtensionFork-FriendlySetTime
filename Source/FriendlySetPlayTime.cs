@@ -12,10 +12,15 @@ namespace FriendlySetPlayTime
     {
         private static readonly ILogger s_logger = LogManager.GetLogger();
 
+        private static IPlayniteAPI s_playniteApi;
+
         public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
         public FriendlySetPlayTime(IPlayniteAPI api) : base(api)
         {
+            // Use injected API instance.
+            s_playniteApi = api;
+
             Properties = new GenericPluginProperties
             {
                 HasSettings = false
