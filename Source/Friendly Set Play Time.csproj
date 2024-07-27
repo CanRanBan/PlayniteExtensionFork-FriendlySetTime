@@ -58,6 +58,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnhancedGameData.cs" />
     <Compile Include="NumberValidation.cs" />
     <Compile Include="FriendlySetPlayTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

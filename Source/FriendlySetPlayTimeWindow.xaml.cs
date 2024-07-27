@@ -14,10 +14,7 @@ namespace FriendlySetPlayTime
         private readonly IPlayniteAPI _playniteApi;
 
         private readonly Game _selectedGame;
-
-        public string Hours { get; set; }
-        public string Minutes { get; set; }
-        public string Seconds { get; set; }
+        private EnhancedGameData _enhancedGameData;
 
         public List<string> statuses { get; set; } = new List<string>();
 
@@ -32,11 +29,12 @@ namespace FriendlySetPlayTime
 
             _selectedGame = selectedGame;
 
-            ulong curseconds = selectedGame.Playtime;
-            Seconds = (curseconds % 60).ToString();
-            ulong bigMinutes = curseconds / 60;
-            Minutes = (bigMinutes % 60).ToString();
-            Hours = (bigMinutes / 60).ToString();
+            LoadCurrentGameData();
+        }
+
+        private void LoadCurrentGameData()
+        {
+            _enhancedGameData = new EnhancedGameData(_selectedGame);
 
             string completionStatusNone = "";
             statuses.Add(completionStatusNone);
