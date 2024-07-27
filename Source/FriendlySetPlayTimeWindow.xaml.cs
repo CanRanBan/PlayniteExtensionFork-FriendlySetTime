@@ -8,41 +8,43 @@ using Playnite.SDK.Models;
 
 namespace FriendlySetPlayTime
 {
-    /// <summary>
-    /// Interaction logic for UserControl1.xaml
-    /// </summary>
-    public partial class SetTimeWindow : UserControl
+    public partial class FriendlySetPlayTimeWindow : UserControl
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
+        private readonly ILogger _logger;
+        private readonly IPlayniteAPI _playniteApi;
+
+        private readonly Game _selectedGame;
+
         public string Hours { get; set; }
         public string Minutes { get; set; }
         public string Seconds { get; set; }
 
         public List<string> statuses { get; set; } = new List<string>();
-        private readonly FriendlySetPlugin plugin;
-        private readonly Game game;
 
-        public SetTimeWindow(FriendlySetPlugin plugin, Game game)
+        public FriendlySetPlayTimeWindow(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
-            this.game = game;
-            ulong curseconds = game.Playtime;
+            _logger = logger;
+            _playniteApi = playniteAPI;
+
+            _selectedGame = selectedGame;
+
+            ulong curseconds = selectedGame.Playtime;
             Seconds = (curseconds % 60).ToString();
             ulong bigMinutes = curseconds / 60;
             Minutes = (bigMinutes % 60).ToString();
             Hours = (bigMinutes / 60).ToString();
-            this.plugin = plugin;
 
             string completionStatusNone = "";
             statuses.Add(completionStatusNone);
-            foreach (CompletionStatus completionStatus in plugin.PlayniteApi.Database.CompletionStatuses)
+            foreach (CompletionStatus completionStatus in _playniteApi.Database.CompletionStatuses)
             {
                 statuses.Add(completionStatus.Name);
             }
             InitializeComponent();
-            newDate.SelectedDate = game.LastActivity;
+            newDate.SelectedDate = selectedGame.LastActivity;
 
             // Use completion status none if it's not set.
-            string currentCompletionStatus = game.CompletionStatus?.Name;
+            string currentCompletionStatus = selectedGame.CompletionStatus?.Name;
             if (currentCompletionStatus != null)
             {
                 newStatus.SelectedIndex = statuses.IndexOf(currentCompletionStatus);
@@ -62,37 +64,37 @@ namespace FriendlySetPlayTime
                 ulong scnds = UInt64.Parse(seconds.Text.Trim());
                 scnds += mins * 60;
                 scnds += hrs * 3600;
-                game.Playtime = scnds;
+                _selectedGame.Playtime = scnds;
                 if ((bool)updateStatus.IsChecked)
                 {
                     string status = newStatus.SelectedItem.ToString();
                     if (status != "")
                     {
-                        game.CompletionStatusId = plugin.PlayniteApi.Database.CompletionStatuses.Where(x => x.Name == status).DefaultIfEmpty(game.CompletionStatus).First().Id;
+                        _selectedGame.CompletionStatusId = _playniteApi.Database.CompletionStatuses.Where(x => x.Name == status).DefaultIfEmpty(_selectedGame.CompletionStatus).First().Id;
                     }
                     else
                     {
-                        game.CompletionStatusId = Guid.Empty;
+                        _selectedGame.CompletionStatusId = Guid.Empty;
                     }
                 }
                 if ((bool)setDate.IsChecked)
                 {
-                    game.LastActivity = newDate.SelectedDate;
+                    _selectedGame.LastActivity = newDate.SelectedDate;
                 }
-                plugin.PlayniteApi.Database.Games.Update(game);
+                _playniteApi.Database.Games.Update(_selectedGame);
                 ((Window)Parent).Close();
             }
             catch (Exception E)
             {
-                logger.Error(E, "Error when parsing time");
-                plugin.PlayniteApi.Dialogs.ShowErrorMessage(E.Message, "Error when parsing time");
+                _logger.Error(E, "Error when parsing time");
+                _playniteApi.Dialogs.ShowErrorMessage(E.Message, "Error when parsing time");
             }
         }
 
         private void StatusChanged(object sender, SelectionChangedEventArgs e)
         {
             // Detect if completion status wasn't set.
-            string currentCompletionStatus = game.CompletionStatus?.Name;
+            string currentCompletionStatus = _selectedGame.CompletionStatus?.Name;
             string completionStatusNone = "";
             if (currentCompletionStatus != null)
             {
@@ -112,8 +114,8 @@ namespace FriendlySetPlayTime
 
         private void DidDateChange()
         {
-            if (!(game.LastActivity.HasValue && newDate.SelectedDate.HasValue &&
-                newDate.SelectedDate.Value.Date.Equals(game.LastActivity.Value.Date)))
+            if (!(_selectedGame.LastActivity.HasValue && newDate.SelectedDate.HasValue &&
+                newDate.SelectedDate.Value.Date.Equals(_selectedGame.LastActivity.Value.Date)))
             {
                 setDate.IsChecked = true;
             }
