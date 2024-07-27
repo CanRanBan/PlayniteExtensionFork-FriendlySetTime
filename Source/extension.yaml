@@ -4,7 +4,7 @@ Author: erys
 Version: 0.5
 Module: FriendlySetTime.dll
 Type: GenericPlugin
-Icon: icon.png
+Icon: Resources\FriendlySetPlayTimeIcon.png
 Links:
     - Name: GitHub
       Url: https://github.com/erys/FriendlySetTimePlaynitePlugin
