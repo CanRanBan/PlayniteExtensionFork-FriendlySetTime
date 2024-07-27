@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Friendly Set Playtime")]
-[assembly: AssemblyDescription("Friendly Set Playtime for Playnite by erys | Updates by CanRanBan")]
+[assembly: AssemblyTitle("Friendly Set Play Time")]
+[assembly: AssemblyDescription("Friendly Set Play Time for Playnite by CanRanBan (Original version by erys)")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Friendly Set Playtime for Playnite")]
-[assembly: AssemblyCopyright("Copyright © 2021-2022 - erys | Updates 2023 - CanRanBan")]
+[assembly: AssemblyProduct("Friendly Set Play Time for Playnite")]
+[assembly: AssemblyCopyright("Copyright © 2021-2022 - erys | 2022-2024 - CanRanBan")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
