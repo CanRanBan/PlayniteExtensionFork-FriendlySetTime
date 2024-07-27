@@ -61,10 +61,12 @@ namespace FriendlySetPlayTime
 
                 dialogWindow.ShowDialog();
             }
-            catch (Exception E)
+            catch (Exception e)
             {
-                s_logger.Error(E, "Error during creatin set time window");
-                PlayniteApi.Dialogs.ShowErrorMessage(E.Message, "Error during set time");
+                const string errorMessage = "Failed to open friendly set play time window for selected game.";
+                const string errorCaption = "Friendly Set Play Time - Window Error";
+                s_logger.Error(e, errorMessage);
+                s_playniteApi.Dialogs.ShowErrorMessage(errorMessage + @"\n\nException: " + e.Message, errorCaption);
             }
         }
     }
