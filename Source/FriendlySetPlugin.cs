@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using Playnite.SDK;
-using Playnite.SDK.Events;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 
@@ -63,46 +62,6 @@ namespace FriendlySetPlayTime
                 logger.Error(E, "Error during creatin set time window");
                 PlayniteApi.Dialogs.ShowErrorMessage(E.Message, "Error during set time");
             }
-        }
-
-        public override void OnGameInstalled(OnGameInstalledEventArgs args)
-        {
-            // Add code to be executed when game is finished installing.
-        }
-
-        public override void OnGameStarted(OnGameStartedEventArgs args)
-        {
-            // Add code to be executed when game is started running.
-        }
-
-        public override void OnGameStarting(OnGameStartingEventArgs args)
-        {
-            // Add code to be executed when game is preparing to be started.
-        }
-
-        public override void OnGameStopped(OnGameStoppedEventArgs args)
-        {
-            // Add code to be executed when game is preparing to be started.
-        }
-
-        public override void OnGameUninstalled(OnGameUninstalledEventArgs args)
-        {
-            // Add code to be executed when game is uninstalled.
-        }
-
-        public override void OnApplicationStarted(OnApplicationStartedEventArgs args)
-        {
-            // Add code to be executed when Playnite is initialized.
-        }
-
-        public override void OnApplicationStopped(OnApplicationStoppedEventArgs args)
-        {
-            // Add code to be executed when Playnite is shutting down.
-        }
-
-        public override void OnLibraryUpdated(OnLibraryUpdatedEventArgs args)
-        {
-            // Add code to be executed when library is updated.
         }
     }
 }
