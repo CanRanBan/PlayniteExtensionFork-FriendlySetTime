@@ -43,24 +43,23 @@ namespace FriendlySetPlayTime
             }
         }
 
-        private void OpenSetPlayTimeWindowForGame(Game game)
+        private static void OpenSetPlayTimeWindowForGame(Game selectedGame)
         {
             try
             {
-                SetTimeWindow view = new SetTimeWindow(this, game);
-                Window window = PlayniteApi.Dialogs.CreateWindow(new WindowCreationOptions
+                Window dialogWindow = s_playniteApi.Dialogs.CreateWindow(new WindowCreationOptions
                 {
                     ShowMinimizeButton = false
                 });
 
-                window.SizeToContent = SizeToContent.WidthAndHeight;
-                window.Title = "Set Time";
-                window.Content = view;
+                dialogWindow.Title = "Friendly Set Play Time";
+                dialogWindow.SizeToContent = SizeToContent.WidthAndHeight;
+                dialogWindow.Content = new FriendlySetPlayTimeWindow(s_logger, s_playniteApi, selectedGame);
 
-                window.Owner = PlayniteApi.Dialogs.GetCurrentAppWindow();
-                window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                dialogWindow.Owner = s_playniteApi.Dialogs.GetCurrentAppWindow();
+                dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-                window.ShowDialog();
+                dialogWindow.ShowDialog();
             }
             catch (Exception E)
             {
