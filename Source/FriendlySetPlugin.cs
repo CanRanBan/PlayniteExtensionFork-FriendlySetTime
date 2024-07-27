@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
 using Playnite.SDK;
 using Playnite.SDK.Events;
 using Playnite.SDK.Models;
@@ -13,8 +12,6 @@ namespace FriendlySetTime
     public class FriendlySetPlugin : GenericPlugin
     {
         private static readonly ILogger logger = LogManager.GetLogger();
-
-        private FriendlySetTimeSettingsViewModel settings { get; set; }
 
         public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
@@ -107,16 +104,6 @@ namespace FriendlySetTime
         public override void OnLibraryUpdated(OnLibraryUpdatedEventArgs args)
         {
             // Add code to be executed when library is updated.
-        }
-
-        public override ISettings GetSettings(bool firstRunSettings)
-        {
-            return settings;
-        }
-
-        public override UserControl GetSettingsView(bool firstRunSettings)
-        {
-            return new FriendlySetTimeSettingsView();
         }
     }
 }
