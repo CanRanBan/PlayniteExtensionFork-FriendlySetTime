@@ -24,19 +24,18 @@ namespace FriendlySetPlayTime
 
         public override IEnumerable<GameMenuItem> GetGameMenuItems(GetGameMenuItemsArgs args)
         {
-            List<GameMenuItem> gameMenuItems = new List<GameMenuItem>();
             if (args.Games.Count == 1)
             {
-                gameMenuItems.Add(new GameMenuItem
+                yield return new GameMenuItem
                 {
-                    Description = "Set Playtime",
-                    Action = (GameMenuItem) =>
+                    Description = "Set Play Time",
+                    // Note: Template with same name for args and actionArgs causes a compiler error. Propagation of values properly works regardless of different names.
+                    Action = actionArgs =>
                     {
-                        DoSetTime(args.Games[0]);
+                        DoSetTime(actionArgs.Games[0]);
                     }
-                });
+                };
             }
-            return gameMenuItems;
         }
 
         private void DoSetTime(Game game)
