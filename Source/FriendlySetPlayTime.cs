@@ -8,6 +8,7 @@ using Playnite.SDK.Plugins;
 namespace FriendlySetPlayTime
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+    // ReSharper disable once UnusedType.Global
     public class FriendlySetPlayTime : GenericPlugin
     {
         private static readonly ILogger s_logger = LogManager.GetLogger();
