@@ -80,7 +80,7 @@ namespace FriendlySetPlayTime
                     game.LastActivity = newDate.SelectedDate;
                 }
                 plugin.PlayniteApi.Database.Games.Update(game);
-                ((Window)this.Parent).Close();
+                ((Window)Parent).Close();
             }
             catch (Exception E)
             {
