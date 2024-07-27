@@ -9,7 +9,7 @@ namespace FriendlySetPlayTime
 {
     public class FriendlySetPlugin : GenericPlugin
     {
-        private static readonly ILogger logger = LogManager.GetLogger();
+        private static readonly ILogger s_logger = LogManager.GetLogger();
 
         public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
@@ -59,7 +59,7 @@ namespace FriendlySetPlayTime
             }
             catch (Exception E)
             {
-                logger.Error(E, "Error during creatin set time window");
+                s_logger.Error(E, "Error during creatin set time window");
                 PlayniteApi.Dialogs.ShowErrorMessage(E.Message, "Error during set time");
             }
         }
