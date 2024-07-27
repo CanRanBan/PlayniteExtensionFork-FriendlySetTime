@@ -23,6 +23,10 @@ namespace FriendlySetPlayTime
 
         public FriendlySetPlayTimeWindow(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
+            InitializeComponent();
+
+            DataContext = this;
+
             _logger = logger;
             _playniteApi = playniteAPI;
 
@@ -40,11 +44,10 @@ namespace FriendlySetPlayTime
             {
                 statuses.Add(completionStatus.Name);
             }
-            InitializeComponent();
-            newDate.SelectedDate = selectedGame.LastActivity;
+            newDate.SelectedDate = _selectedGame.LastActivity;
 
             // Use completion status none if it's not set.
-            string currentCompletionStatus = selectedGame.CompletionStatus?.Name;
+            string currentCompletionStatus = _selectedGame.CompletionStatus?.Name;
             if (currentCompletionStatus != null)
             {
                 newStatus.SelectedIndex = statuses.IndexOf(currentCompletionStatus);
