@@ -32,7 +32,7 @@ namespace FriendlySetPlayTime
             Hours = (bigMinutes / 60).ToString();
             this.plugin = plugin;
 
-            var completionStatusNone = "";
+            string completionStatusNone = "";
             statuses.Add(completionStatusNone);
             foreach (CompletionStatus completionStatus in plugin.PlayniteApi.Database.CompletionStatuses)
             {
@@ -42,7 +42,7 @@ namespace FriendlySetPlayTime
             newDate.SelectedDate = game.LastActivity;
 
             // Use completion status none if it's not set.
-            var currentCompletionStatus = game.CompletionStatus?.Name;
+            string currentCompletionStatus = game.CompletionStatus?.Name;
             if (currentCompletionStatus != null)
             {
                 newStatus.SelectedIndex = statuses.IndexOf(currentCompletionStatus);
@@ -92,8 +92,8 @@ namespace FriendlySetPlayTime
         private void StatusChanged(object sender, SelectionChangedEventArgs e)
         {
             // Detect if completion status wasn't set.
-            var currentCompletionStatus = game.CompletionStatus?.Name;
-            var completionStatusNone = "";
+            string currentCompletionStatus = game.CompletionStatus?.Name;
+            string completionStatusNone = "";
             if (currentCompletionStatus != null)
             {
                 if (currentCompletionStatus != newStatus.SelectedItem.ToString())
