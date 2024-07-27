@@ -112,7 +112,7 @@ namespace FriendlySetPlayTime
 
         private void DidDateChange()
         {
-            if (!((game.LastActivity.HasValue && newDate.SelectedDate.HasValue) &&
+            if (!(game.LastActivity.HasValue && newDate.SelectedDate.HasValue &&
                 newDate.SelectedDate.Value.Date.Equals(game.LastActivity.Value.Date)))
             {
                 setDate.IsChecked = true;
