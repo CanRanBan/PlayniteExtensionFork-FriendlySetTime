@@ -8,13 +8,13 @@ using Playnite.SDK.Plugins;
 namespace FriendlySetPlayTime
 {
     // ReSharper disable once ClassNeverInstantiated.Global
-    public class FriendlySetPlugin : GenericPlugin
+    public class FriendlySetPlayTime : GenericPlugin
     {
         private static readonly ILogger s_logger = LogManager.GetLogger();
 
         public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
-        public FriendlySetPlugin(IPlayniteAPI api) : base(api)
+        public FriendlySetPlayTime(IPlayniteAPI api) : base(api)
         {
             Properties = new GenericPluginProperties
             {

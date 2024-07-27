@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NumberValidation.cs" />
-    <Compile Include="FriendlySetPlugin.cs" />
+    <Compile Include="FriendlySetPlayTime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FriendlySetTime.SetTimeWindow.xaml.cs">
       <DependentUpon>FriendlySetTime.SetTimeWindow.xaml</DependentUpon>
