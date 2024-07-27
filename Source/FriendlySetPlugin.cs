@@ -43,7 +43,7 @@ namespace FriendlySetPlayTime
             try
             {
                 SetTimeWindow view = new SetTimeWindow(this, game);
-                var window = PlayniteApi.Dialogs.CreateWindow(new WindowCreationOptions
+                Window window = PlayniteApi.Dialogs.CreateWindow(new WindowCreationOptions
                 {
                     ShowMinimizeButton = false
                 });
