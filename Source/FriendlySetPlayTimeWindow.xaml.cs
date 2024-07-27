@@ -8,7 +8,7 @@ using Playnite.SDK.Models;
 
 namespace FriendlySetPlayTime
 {
-    public partial class FriendlySetPlayTimeWindow : UserControl
+    public partial class FriendlySetPlayTimeWindow
     {
         private readonly ILogger _logger;
         private readonly IPlayniteAPI _playniteApi;
