@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 
-namespace FriendlySetTime
+namespace FriendlySetPlayTime
 {
     /// <summary>
     /// Interaction logic for UserControl1.xaml

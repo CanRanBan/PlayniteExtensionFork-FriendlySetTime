@@ -6,7 +6,7 @@ using Playnite.SDK.Events;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 
-namespace FriendlySetTime
+namespace FriendlySetPlayTime
 {
     // renamed this from FriendlySetTime because visual studio was getting confused about the same namespace+name
     public class FriendlySetPlugin : GenericPlugin

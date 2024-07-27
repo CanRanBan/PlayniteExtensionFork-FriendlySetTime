@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Windows.Controls;
 
-namespace FriendlySetTime
+namespace FriendlySetPlayTime
 {
 
     public class NumberValidation : ValidationRule
