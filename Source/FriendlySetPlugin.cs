@@ -16,7 +16,7 @@ namespace FriendlySetTime
 
         private FriendlySetTimeSettingsViewModel settings { get; set; }
 
-        public override Guid Id { get; } = Guid.Parse("1f05ed2e-f22d-45e0-8e81-16378a8464c7");
+        public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
         public FriendlySetPlugin(IPlayniteAPI api) : base(api)
         {
