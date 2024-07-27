@@ -32,13 +32,13 @@ namespace FriendlySetPlayTime
                     // Note: Template with same name for args and actionArgs causes a compiler error. Propagation of values properly works regardless of different names.
                     Action = actionArgs =>
                     {
-                        DoSetTime(actionArgs.Games[0]);
+                        OpenSetPlayTimeWindowForGame(actionArgs.Games[0]);
                     }
                 };
             }
         }
 
-        private void DoSetTime(Game game)
+        private void OpenSetPlayTimeWindowForGame(Game game)
         {
             try
             {
