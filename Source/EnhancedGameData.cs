@@ -1,15 +1,34 @@
-﻿using Playnite.SDK.Models;
+﻿using System;
+using System.Collections.Generic;
+using Playnite.SDK;
+using Playnite.SDK.Models;
 
 namespace FriendlySetPlayTime
 {
     internal class EnhancedGameData
     {
+        private readonly ILogger _logger;
+        private readonly IPlayniteAPI _playniteAPI;
+        private readonly Game _selectedGame;
+
         internal ulong Days { get; set; }
         internal ulong Hours { get; set; }
         internal ulong Minutes { get; set; }
         internal ulong Seconds { get; set; }
 
-        public EnhancedGameData(Game selectedGame)
+        internal string CompletionStatus { get; set; }
+        internal List<string> CompletionStatusList { get; set; }
+
+        public EnhancedGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
+        {
+            _logger = logger;
+            _playniteAPI = playniteAPI;
+            _selectedGame = selectedGame;
+
+            EnhancePlayTime(selectedGame);
+            EnhanceCompletionStatus(selectedGame);
+        }
+        private void EnhancePlayTime(Game selectedGame)
         {
             // Play Time value is in seconds potentially including minutes, hours, days.
             ulong secondsAndMore = selectedGame.Playtime;
@@ -52,6 +71,19 @@ namespace FriendlySetPlayTime
                     }
                 }
             }
+        }
+
+        private void EnhanceCompletionStatus(Game selectedGame)
+        {
+            // Create list of all available completion status.
+            CompletionStatusList.Add(Playnite.SDK.Models.CompletionStatus.Empty.Name);
+            foreach (CompletionStatus completionStatus in _playniteAPI.Database.CompletionStatuses)
+            {
+                CompletionStatusList.Add(completionStatus.Name);
+            }
+
+            // Use completion status none if unset.
+            CompletionStatus = selectedGame.CompletionStatus?.Name ?? Playnite.SDK.Models.CompletionStatus.Empty.Name;
         }
     }
 }
