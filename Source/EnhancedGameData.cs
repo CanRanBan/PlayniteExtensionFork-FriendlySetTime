@@ -19,6 +19,14 @@ namespace FriendlySetPlayTime
         internal string CompletionStatus { get; set; }
         internal List<string> CompletionStatusList { get; set; }
 
+        internal DateTime LastActivity { get; set; }
+        internal string FullDateAndTimeLong { get; set; }
+        internal string FullDateAndTimeShort { get; set; }
+        internal string DateLong { get; set; }
+        internal string DateShort { get; set; }
+        internal string TimeLong { get; set; }
+        internal string TimeShort { get; set; }
+
         public EnhancedGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
             _logger = logger;
@@ -27,7 +35,9 @@ namespace FriendlySetPlayTime
 
             EnhancePlayTime(selectedGame);
             EnhanceCompletionStatus(selectedGame);
+            EnhanceLastActivity(selectedGame);
         }
+
         private void EnhancePlayTime(Game selectedGame)
         {
             // Play Time value is in seconds potentially including minutes, hours, days.
@@ -84,6 +94,23 @@ namespace FriendlySetPlayTime
 
             // Use completion status none if unset.
             CompletionStatus = selectedGame.CompletionStatus?.Name ?? Playnite.SDK.Models.CompletionStatus.Empty.Name;
+        }
+
+        private void EnhanceLastActivity(Game selectedGame)
+        {
+            if (!selectedGame.LastActivity.HasValue)
+            {
+                return;
+            }
+
+            LastActivity = selectedGame.LastActivity.Value;
+
+            FullDateAndTimeLong = LastActivity.ToString(FullDateAndTimeLong);
+            FullDateAndTimeShort = LastActivity.ToString(FullDateAndTimeShort);
+            DateLong = LastActivity.ToString(DateLong);
+            DateShort = LastActivity.ToString(DateShort);
+            TimeLong = LastActivity.ToString(TimeLong);
+            TimeShort = LastActivity.ToString(TimeShort);
         }
     }
 }
