@@ -64,7 +64,7 @@ namespace FriendlySetPlayTime
             }
             catch (Exception e)
             {
-                const string errorMessage = "Failed to open friendly set play time window for selected game.";
+                const string errorMessage = "Failed to open Friendly Set Play Time window for selected game.";
                 const string errorCaption = "Friendly Set Play Time - Window Error";
                 s_logger.Error(e, errorMessage);
                 s_playniteAPI.Dialogs.ShowErrorMessage(errorMessage + @"\n\nException: " + e.Message, errorCaption);
