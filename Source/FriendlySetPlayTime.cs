@@ -13,14 +13,14 @@ namespace FriendlySetPlayTime
     {
         private static readonly ILogger s_logger = LogManager.GetLogger();
 
-        private static IPlayniteAPI s_playniteApi;
+        private static IPlayniteAPI s_playniteAPI;
 
         public override Guid Id { get; } = Guid.Parse("84AAD786-7050-4558-8BF2-6A17C748FA26");
 
         public FriendlySetPlayTime(IPlayniteAPI api) : base(api)
         {
             // Use injected API instance.
-            s_playniteApi = api;
+            s_playniteAPI = api;
 
             Properties = new GenericPluginProperties
             {
@@ -48,16 +48,16 @@ namespace FriendlySetPlayTime
         {
             try
             {
-                Window dialogWindow = s_playniteApi.Dialogs.CreateWindow(new WindowCreationOptions
+                Window dialogWindow = s_playniteAPI.Dialogs.CreateWindow(new WindowCreationOptions
                 {
                     ShowMinimizeButton = false
                 });
 
                 dialogWindow.Title = "Friendly Set Play Time";
                 dialogWindow.SizeToContent = SizeToContent.WidthAndHeight;
-                dialogWindow.Content = new FriendlySetPlayTimeWindow(s_logger, s_playniteApi, selectedGame);
+                dialogWindow.Content = new FriendlySetPlayTimeWindow(s_logger, s_playniteAPI, selectedGame);
 
-                dialogWindow.Owner = s_playniteApi.Dialogs.GetCurrentAppWindow();
+                dialogWindow.Owner = s_playniteAPI.Dialogs.GetCurrentAppWindow();
                 dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
                 dialogWindow.ShowDialog();
@@ -67,7 +67,7 @@ namespace FriendlySetPlayTime
                 const string errorMessage = "Failed to open friendly set play time window for selected game.";
                 const string errorCaption = "Friendly Set Play Time - Window Error";
                 s_logger.Error(e, errorMessage);
-                s_playniteApi.Dialogs.ShowErrorMessage(errorMessage + @"\n\nException: " + e.Message, errorCaption);
+                s_playniteAPI.Dialogs.ShowErrorMessage(errorMessage + @"\n\nException: " + e.Message, errorCaption);
             }
         }
     }
