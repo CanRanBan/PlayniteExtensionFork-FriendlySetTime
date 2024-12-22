@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:friendlySetPlayTime="clr-namespace:FriendlySetPlayTime"
              mc:Ignorable="d" 
-             d:DesignWidth="610" d:DesignHeight="200">
+             d:DesignWidth="610" d:DesignHeight="200" d:DataContext="{d:DesignInstance Type=friendlySetPlayTime:EnhancedGameData}">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
