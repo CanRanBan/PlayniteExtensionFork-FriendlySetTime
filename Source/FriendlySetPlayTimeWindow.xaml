@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:friendlySetPlayTime="clr-namespace:FriendlySetPlayTime"
              mc:Ignorable="d" 
-             d:DesignWidth="500" d:DesignHeight="145"
-             x:Name="_window">
+             d:DesignWidth="500" d:DesignHeight="145">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
