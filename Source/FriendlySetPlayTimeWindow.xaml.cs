@@ -11,8 +11,7 @@ namespace FriendlySetPlayTime
     public partial class FriendlySetPlayTimeWindow
     {
         private readonly ILogger _logger;
-        private readonly IPlayniteAPI _playniteApi;
-
+        private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
         private EnhancedGameData _enhancedGameData;
 
@@ -25,8 +24,7 @@ namespace FriendlySetPlayTime
             DataContext = this;
 
             _logger = logger;
-            _playniteApi = playniteAPI;
-
+            _playniteAPI = playniteAPI;
             _selectedGame = selectedGame;
 
             LoadCurrentGameData();
