@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Playnite.SDK;
@@ -32,42 +30,6 @@ namespace FriendlySetPlayTime
         private EnhancedGameData LoadCurrentGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
             return _enhancedGameData = new EnhancedGameData(logger, playniteAPI, selectedGame);
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                uint mins = UInt32.Parse(minutes.Text.Trim());
-                uint hrs = UInt32.Parse(hours.Text.Trim());
-                ulong scnds = UInt64.Parse(seconds.Text.Trim());
-                scnds += mins * 60;
-                scnds += hrs * 3600;
-                _selectedGame.Playtime = scnds;
-                if ((bool)updateStatus.IsChecked)
-                {
-                    string status = newStatus.SelectedItem.ToString();
-                    if (status != "")
-                    {
-                        _selectedGame.CompletionStatusId = _playniteApi.Database.CompletionStatuses.Where(x => x.Name == status).DefaultIfEmpty(_selectedGame.CompletionStatus).First().Id;
-                    }
-                    else
-                    {
-                        _selectedGame.CompletionStatusId = Guid.Empty;
-                    }
-                }
-                if ((bool)setDate.IsChecked)
-                {
-                    _selectedGame.LastActivity = newDate.SelectedDate;
-                }
-                _playniteApi.Database.Games.Update(_selectedGame);
-                ((Window)Parent).Close();
-            }
-            catch (Exception E)
-            {
-                _logger.Error(E, "Error when parsing time");
-                _playniteApi.Dialogs.ShowErrorMessage(E.Message, "Error when parsing time");
-            }
         }
 
         private void CompletionStatusComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
