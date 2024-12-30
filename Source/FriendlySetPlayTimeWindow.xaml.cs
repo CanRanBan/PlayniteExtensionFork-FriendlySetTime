@@ -32,25 +32,6 @@ namespace FriendlySetPlayTime
         private EnhancedGameData LoadCurrentGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
             return _enhancedGameData = new EnhancedGameData(logger, playniteAPI, selectedGame);
-
-            string completionStatusNone = "";
-            statuses.Add(completionStatusNone);
-            foreach (CompletionStatus completionStatus in _playniteApi.Database.CompletionStatuses)
-            {
-                statuses.Add(completionStatus.Name);
-            }
-            newDate.SelectedDate = _selectedGame.LastActivity;
-
-            // Use completion status none if it's not set.
-            string currentCompletionStatus = _selectedGame.CompletionStatus?.Name;
-            if (currentCompletionStatus != null)
-            {
-                newStatus.SelectedIndex = statuses.IndexOf(currentCompletionStatus);
-            }
-            else
-            {
-                newStatus.SelectedIndex = statuses.IndexOf(completionStatusNone);
-            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
