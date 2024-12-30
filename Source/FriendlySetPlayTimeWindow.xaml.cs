@@ -58,5 +58,32 @@ namespace FriendlySetPlayTime
                 _enhancedGameData.LastActivity = LastActivityDatePicker.SelectedDate.Value;
             }
         }
+
+        private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                _selectedGame.Playtime = _enhancedGameData.SimplifyPlayTime();
+
+                if (CompletionStatusCheckBox.IsChecked.GetValueOrDefault())
+                {
+                    _selectedGame.CompletionStatusId = _enhancedGameData.SimplifyCompletionStatus();
+                }
+
+                if (LastActivityCheckBox.IsChecked.GetValueOrDefault())
+                {
+                    _selectedGame.LastActivity = _enhancedGameData.LastActivity;
+                }
+                _playniteAPI.Database.Games.Update(_selectedGame);
+                ((Window)Parent).Close();
+            }
+            catch (Exception saveException)
+            {
+                const string errorMessage = "Failed to save data for selected game.";
+                const string errorCaption = "Friendly Set Play Time - Save Error";
+                _logger.Error(saveException, errorMessage);
+                _playniteAPI.Dialogs.ShowErrorMessage(errorMessage + @"\n\nException: " + saveException.Message, errorCaption);
+            }
+        }
     }
 }
