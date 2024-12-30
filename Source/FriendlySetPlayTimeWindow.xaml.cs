@@ -13,6 +13,7 @@ namespace FriendlySetPlayTime
         private readonly ILogger _logger;
         private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
+
         private EnhancedGameData _enhancedGameData;
 
         public List<string> statuses { get; set; } = new List<string>();
