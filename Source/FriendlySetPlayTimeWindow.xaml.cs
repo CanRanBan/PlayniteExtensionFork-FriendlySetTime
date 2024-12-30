@@ -41,7 +41,7 @@ namespace FriendlySetPlayTime
         {
             LastActivityCheckBox.IsChecked = true;
 
-            _enhancedGameData.LastActivity = DateTime.Today;
+            _enhancedGameData.LastActivity = DateTime.Today.Date;
         }
 
         private void LastActivityRadioButtonDatePicker_OnClick(object sender, RoutedEventArgs e)
