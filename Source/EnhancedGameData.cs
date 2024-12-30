@@ -18,6 +18,7 @@ namespace FriendlySetPlayTime
 
         internal string CompletionStatus { get; set; }
         internal List<string> CompletionStatusList { get; set; }
+        internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; }
 
         internal DateTime LastActivity { get; set; }
         internal string FullDateAndTimeLong { get; set; }
@@ -113,14 +114,32 @@ namespace FriendlySetPlayTime
         private void EnhanceCompletionStatus(Game selectedGame)
         {
             // Create list of all available completion status.
-            CompletionStatusList.Add(Playnite.SDK.Models.CompletionStatus.Empty.Name);
+            var emptyCompletionStatus = Playnite.SDK.Models.CompletionStatus.Empty;
+            CompletionStatusList.Add(emptyCompletionStatus.Name);
+            CompletionStatusDictionary.Add(emptyCompletionStatus.Name, emptyCompletionStatus.Id);
             foreach (CompletionStatus completionStatus in _playniteAPI.Database.CompletionStatuses)
             {
                 CompletionStatusList.Add(completionStatus.Name);
+                CompletionStatusDictionary.Add(completionStatus.Name, completionStatus.Id);
             }
 
             // Use completion status none if unset.
-            CompletionStatus = selectedGame.CompletionStatus?.Name ?? Playnite.SDK.Models.CompletionStatus.Empty.Name;
+            CompletionStatus = selectedGame.CompletionStatus?.Name ?? emptyCompletionStatus.Name;
+        }
+
+        public Guid SimplifyCompletionStatus(string completionStatus)
+        {
+            Guid completionStatusId = Guid.Empty;
+
+            if (!string.IsNullOrEmpty(completionStatus))
+            {
+                if (CompletionStatusDictionary.ContainsKey(completionStatus))
+                {
+                    CompletionStatusDictionary.TryGetValue(completionStatus, out completionStatusId);
+                }
+            }
+
+            return completionStatusId;
         }
 
         private void EnhanceLastActivity(Game selectedGame)
