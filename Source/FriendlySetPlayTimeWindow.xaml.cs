@@ -16,8 +16,6 @@ namespace FriendlySetPlayTime
 
         private EnhancedGameData _enhancedGameData;
 
-        public List<string> statuses { get; set; } = new List<string>();
-
         public FriendlySetPlayTimeWindow(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
             InitializeComponent();
