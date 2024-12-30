@@ -89,25 +89,9 @@ namespace FriendlySetPlayTime
             }
         }
 
-        private void StatusChanged(object sender, SelectionChangedEventArgs e)
+        private void CompletionStatusComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Detect if completion status wasn't set.
-            string currentCompletionStatus = _selectedGame.CompletionStatus?.Name;
-            string completionStatusNone = "";
-            if (currentCompletionStatus != null)
-            {
-                if (currentCompletionStatus != newStatus.SelectedItem.ToString())
-                {
-                    updateStatus.IsChecked = true;
-                }
-            }
-            else
-            {
-                if (completionStatusNone != newStatus.SelectedItem.ToString())
-                {
-                    updateStatus.IsChecked = true;
-                }
-            }
+            CompletionStatusCheckBox.IsChecked = true;
         }
 
         private void DidDateChange()
