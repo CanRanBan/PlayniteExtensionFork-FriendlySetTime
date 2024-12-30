@@ -58,7 +58,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
             <Button Width="60" Margin="5,0,5,0" Content="Save" Click="SaveButton_OnClick" IsDefault="True"/>
             <Button Width="80" Margin="5,0,5,0" Content="Cancel" IsCancel="True"/>
         </StackPanel>
