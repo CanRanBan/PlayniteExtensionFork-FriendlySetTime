@@ -26,12 +26,12 @@ namespace FriendlySetPlayTime
             _playniteAPI = playniteAPI;
             _selectedGame = selectedGame;
 
-            LoadCurrentGameData();
+            _enhancedGameData = LoadCurrentGameData(_logger, _playniteAPI, _selectedGame);
         }
 
-        private void LoadCurrentGameData()
+        private EnhancedGameData LoadCurrentGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
-            _enhancedGameData = new EnhancedGameData(_selectedGame);
+            return _enhancedGameData = new EnhancedGameData(logger, playniteAPI, selectedGame);
 
             string completionStatusNone = "";
             statuses.Add(completionStatusNone);
