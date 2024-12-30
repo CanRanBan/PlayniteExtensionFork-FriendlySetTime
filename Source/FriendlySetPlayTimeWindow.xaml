@@ -29,19 +29,19 @@
         <CheckBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8" VerticalAlignment="Center" Margin="0,0,0,5" IsEnabled="False" IsChecked="True" ToolTip="Always enabled.">Set Play Time to:</CheckBox>
         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Label Margin="0,0,0,0">Days:</Label>
-            <TextBox Name="PlayTimeDays" Text="{Binding Days}"  AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
+            <TextBox Name="PlayTimeDays" Text="{Binding Days}" AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Label Margin="0,0,0,0">Hours:</Label>
-            <TextBox Name="PlayTimeHours" Text="{Binding Hours}"  AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
+            <TextBox Name="PlayTimeHours" Text="{Binding Hours}" AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Label Margin="0,0,0,0">Minutes:</Label>
-            <TextBox Name="PlayTimeMinutes" Text="{Binding Minutes}"  AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
+            <TextBox Name="PlayTimeMinutes" Text="{Binding Minutes}" AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Orientation="Horizontal">
             <Label Margin="0,0,0,0">Seconds:</Label>
-            <TextBox Name="PlayTimeSeconds" Text="{Binding Seconds}"  AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
+            <TextBox Name="PlayTimeSeconds" Text="{Binding Seconds}" AcceptsTab="False" AcceptsReturn="False" MaxLines="1" MaxLength="8" Width="100" TextAlignment="Right" />
         </StackPanel>
 
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="8" Orientation="Horizontal" Margin="0,15,0,0">
