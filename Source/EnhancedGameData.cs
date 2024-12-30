@@ -83,6 +83,33 @@ namespace FriendlySetPlayTime
             }
         }
 
+        public ulong SimplifyPlayTime(ulong days, ulong hours, ulong minutes, ulong seconds)
+        {
+            ulong playTime = 0;
+
+            if (days > 0)
+            {
+                playTime += days * 24 * 60 * 60;
+            }
+
+            if (hours > 0)
+            {
+                playTime += hours * 60 * 60;
+            }
+
+            if (minutes > 0)
+            {
+                playTime += minutes * 60;
+            }
+
+            if (seconds > 0)
+            {
+                playTime += seconds;
+            }
+
+            return playTime;
+        }
+
         private void EnhanceCompletionStatus(Game selectedGame)
         {
             // Create list of all available completion status.
