@@ -94,27 +94,25 @@ namespace FriendlySetPlayTime
             CompletionStatusCheckBox.IsChecked = true;
         }
 
-        private void DidDateChange()
+        private void LastActivityRadioButtonToday_OnClick(object sender, RoutedEventArgs e)
         {
-            if (!(_selectedGame.LastActivity.HasValue && newDate.SelectedDate.HasValue &&
-                newDate.SelectedDate.Value.Date.Equals(_selectedGame.LastActivity.Value.Date)))
-            {
-                setDate.IsChecked = true;
-            }
+            LastActivityCheckBox.IsChecked = true;
+
+            _enhancedGameData.LastActivity = DateTime.Today;
         }
 
-        private void SetToday_Checked(object sender, RoutedEventArgs e)
+        private void LastActivityRadioButtonDatePicker_OnClick(object sender, RoutedEventArgs e)
         {
-            newDate.SelectedDate = DateTime.Today;
-            DidDateChange();
+            LastActivityCheckBox.IsChecked = true;
         }
 
-        private void NewDate_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void LastActivityDatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            DidDateChange();
-            if (!(newDate.SelectedDate.HasValue && newDate.SelectedDate.Value.Date.Equals(DateTime.Today.Date)))
+            if (LastActivityDatePicker.SelectedDate.HasValue)
             {
-                setToday.IsChecked = false;
+                LastActivityCheckBox.IsChecked = true;
+
+                _enhancedGameData.LastActivity = LastActivityDatePicker.SelectedDate.Value;
             }
         }
     }

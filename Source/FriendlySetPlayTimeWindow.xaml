@@ -51,9 +51,9 @@
 
         <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="0,15,10,0" Name="LastActivityCheckBox" IsEnabled="True" IsChecked="False" ToolTip="Disable to keep current Last Activity.">Set Last Activity to:</CheckBox>
         <StackPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="6" Orientation="Vertical" Margin="0,15,0,0">
-            <RadioButton Name="LastActivityRadioButtonToday" VerticalAlignment="Center" Margin="0,0,0,5" IsEnabled="True" IsChecked="False">Today</RadioButton>
+            <RadioButton GroupName="LastActivityRadioButtonGroup" Name="LastActivityRadioButtonToday" VerticalAlignment="Center" Margin="0,0,0,5" IsEnabled="True" IsChecked="False" Click="LastActivityRadioButtonToday_OnClick">Today</RadioButton>
             <StackPanel Orientation="Horizontal">
-                <RadioButton Name="LastActivityRadioButtonDatePicker" VerticalAlignment="Center" Margin="0,0,10,0" IsEnabled="True" IsChecked="False">Selected Date:</RadioButton>
+                <RadioButton GroupName="LastActivityRadioButtonGroup" Name="LastActivityRadioButtonDatePicker" VerticalAlignment="Center" Margin="0,0,10,0" IsEnabled="True" IsChecked="False" Click="LastActivityRadioButtonDatePicker_OnClick">Selected Date:</RadioButton>
                 <DatePicker Name="LastActivityDatePicker" VerticalAlignment="Center" MinWidth="150" IsEnabled="True" SelectedDateChanged="LastActivityDatePicker_OnSelectedDateChanged"/>
             </StackPanel>
         </StackPanel>
