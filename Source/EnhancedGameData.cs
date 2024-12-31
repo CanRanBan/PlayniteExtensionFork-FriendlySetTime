@@ -20,9 +20,12 @@ namespace FriendlySetPlayTime
         internal List<string> CompletionStatusList { get; set; }
         internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; }
 
+        // Last Activity
         internal DateTime LastActivity { get; set; }
-        internal string FullDateAndTimeLong { get; set; }
-        internal string FullDateAndTimeShort { get; set; }
+        internal string DateLongAndTimeLong { get; set; }
+        internal string DateLongAndTimeShort { get; set; }
+        internal string DateShortAndTimeLong { get; set; }
+        internal string DateShortAndTimeShort { get; set; }
         internal string DateLong { get; set; }
         internal string DateShort { get; set; }
         internal string TimeLong { get; set; }
@@ -151,12 +154,14 @@ namespace FriendlySetPlayTime
 
             LastActivity = selectedGame.LastActivity.Value;
 
-            FullDateAndTimeLong = LastActivity.ToString(FullDateAndTimeLong);
-            FullDateAndTimeShort = LastActivity.ToString(FullDateAndTimeShort);
-            DateLong = LastActivity.ToString(DateLong);
-            DateShort = LastActivity.ToString(DateShort);
-            TimeLong = LastActivity.ToString(TimeLong);
-            TimeShort = LastActivity.ToString(TimeShort);
+            DateLongAndTimeLong = LastActivity.ToString("F");
+            DateLongAndTimeShort = LastActivity.ToString("f");
+            DateShortAndTimeLong = LastActivity.ToString("G");
+            DateShortAndTimeShort = LastActivity.ToString("g");
+            DateLong = LastActivity.ToString("D");
+            DateShort = LastActivity.ToString("d");
+            TimeLong = LastActivity.ToString("T");
+            TimeShort = LastActivity.ToString("t");
         }
     }
 }
