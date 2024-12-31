@@ -11,13 +11,15 @@ namespace FriendlySetPlayTime
         private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
 
-        internal ulong Days { get; set; }
-        internal ulong Hours { get; set; }
-        internal ulong Minutes { get; set; }
-        internal ulong Seconds { get; set; }
+        // Play Time
+        public ulong Days { get; set; }
+        public ulong Hours { get; set; }
+        public ulong Minutes { get; set; }
+        public ulong Seconds { get; set; }
 
-        internal string CompletionStatus { get; set; }
-        internal List<string> CompletionStatusList { get; set; }
+        // Completion Status
+        public string CompletionStatus { get; set; }
+        public List<string> CompletionStatusList { get; set; }
         internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; }
 
         // Last Activity
