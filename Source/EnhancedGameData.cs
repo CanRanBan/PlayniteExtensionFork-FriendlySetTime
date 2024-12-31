@@ -89,7 +89,12 @@ namespace FriendlySetPlayTime
             }
         }
 
-        public ulong SimplifyPlayTime(ulong days, ulong hours, ulong minutes, ulong seconds)
+        public ulong SimplifyPlayTime()
+        {
+            return SimplifyPlayTime(Days, Hours, Minutes, Seconds);
+        }
+
+        private static ulong SimplifyPlayTime(ulong days, ulong hours, ulong minutes, ulong seconds)
         {
             ulong playTime = 0;
 
@@ -132,7 +137,12 @@ namespace FriendlySetPlayTime
             CompletionStatus = selectedGame.CompletionStatus?.Name ?? emptyCompletionStatus.Name;
         }
 
-        public Guid SimplifyCompletionStatus(string completionStatus)
+        public Guid SimplifyCompletionStatus()
+        {
+            return SimplifyCompletionStatus(CompletionStatus);
+        }
+
+        private Guid SimplifyCompletionStatus(string completionStatus)
         {
             Guid completionStatusId = Guid.Empty;
 
