@@ -49,7 +49,7 @@
             <ComboBox x:Name="CompletionStatusComboBox" VerticalAlignment="Center" MinWidth="150" SelectedItem="{Binding CompletionStatus}" ItemsSource="{Binding CompletionStatusList}" SelectionChanged="CompletionStatusComboBox_OnSelectionChanged" />
         </StackPanel>
 
-        <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="0,15,10,0" Name="LastActivityCheckBox" IsEnabled="True" IsChecked="False" ToolTip="Disable to keep current Last Activity.">Set Last Activity to:</CheckBox>
+        <CheckBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Margin="0,15,10,0" x:Name="LastActivityCheckBox" IsEnabled="True" IsChecked="False" ToolTip="Disable to keep current Last Activity.">Set Last Activity to:</CheckBox>
         <StackPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="6" Orientation="Vertical" Margin="0,15,0,0">
             <RadioButton GroupName="LastActivityRadioButtonGroup" x:Name="LastActivityRadioButtonToday" VerticalAlignment="Center" Margin="0,0,0,5" IsEnabled="True" IsChecked="False" Click="LastActivityRadioButtonToday_OnClick">Today</RadioButton>
             <StackPanel Orientation="Horizontal">
