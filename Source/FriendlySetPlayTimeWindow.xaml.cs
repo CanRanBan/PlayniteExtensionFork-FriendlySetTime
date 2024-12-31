@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 
@@ -11,6 +13,8 @@ namespace FriendlySetPlayTime
         private readonly ILogger _logger;
         private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
+
+        private const string RegexDigitsOnly = "^[0-9]+$";
 
         private EnhancedGameData _enhancedGameData;
 
@@ -59,10 +63,33 @@ namespace FriendlySetPlayTime
             }
         }
 
+        private static bool VerifyTextBoxInput(TextBox inputField)
+        {
+            string input = inputField.Text;
+            if (string.IsNullOrEmpty(input) || Regex.IsMatch(input, RegexDigitsOnly))
+            {
+                inputField.ClearValue(BackgroundProperty);
+                return true;
+            }
+
+            inputField.Background = Brushes.Red;
+            return false;
+        }
+
+        private bool VerifyPlayTimeInput()
+        {
+            return VerifyTextBoxInput(PlayTimeSeconds) && VerifyTextBoxInput(PlayTimeMinutes) && VerifyTextBoxInput(PlayTimeHours) && VerifyTextBoxInput(PlayTimeDays);
+        }
+
         private void SaveButton_OnClick(object sender, RoutedEventArgs e)
         {
             try
             {
+                if (!VerifyPlayTimeInput())
+                {
+                    return;
+                }
+
                 _selectedGame.Playtime = _enhancedGameData.SimplifyPlayTime();
 
                 if (CompletionStatusCheckBox.IsChecked.GetValueOrDefault())
