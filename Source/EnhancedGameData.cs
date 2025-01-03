@@ -19,8 +19,8 @@ namespace FriendlySetPlayTime
 
         // Completion Status
         public string CompletionStatus { get; set; }
-        public List<string> CompletionStatusList { get; set; }
-        internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; }
+        public List<string> CompletionStatusList { get; set; } = new List<string>();
+        internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; } = new Dictionary<string, Guid>();
 
         // Last Activity
         internal DateTime LastActivity { get; set; }
