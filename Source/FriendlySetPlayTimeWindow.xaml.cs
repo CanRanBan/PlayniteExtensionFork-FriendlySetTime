@@ -14,9 +14,13 @@ namespace FriendlySetPlayTime
         private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
 
-        private const string RegexDigitsOnly = "^[0-9]+$";
+        private readonly EnhancedGameData _enhancedGameData;
 
-        private EnhancedGameData _enhancedGameData;
+        private bool _loadingCurrentCompletionStatusFinished;
+        private bool _loadingCurrentLastActivityStepOneFinished;
+        private bool _loadingCurrentLastActivityStepTwoFinished;
+
+        private const string RegexDigitsOnly = "^[0-9]+$";
 
         public FriendlySetPlayTimeWindow(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
         {
@@ -32,7 +36,14 @@ namespace FriendlySetPlayTime
 
         private void CompletionStatusComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CompletionStatusCheckBox.IsChecked = true;
+            if (_loadingCurrentCompletionStatusFinished)
+            {
+                CompletionStatusCheckBox.IsChecked = true;
+            }
+            else
+            {
+                _loadingCurrentCompletionStatusFinished = true;
+            }
         }
 
         private void LastActivityRadioButtonToday_OnClick(object sender, RoutedEventArgs e)
@@ -49,11 +60,17 @@ namespace FriendlySetPlayTime
 
         private void LastActivityDatePicker_OnSelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LastActivityDatePicker.SelectedDate.HasValue)
+            if (_loadingCurrentLastActivityStepOneFinished && _loadingCurrentLastActivityStepTwoFinished)
             {
                 LastActivityCheckBox.IsChecked = true;
-
-                _enhancedGameData.LastActivity = LastActivityDatePicker.SelectedDate.Value;
+            }
+            else if (!_loadingCurrentLastActivityStepOneFinished && !_loadingCurrentLastActivityStepTwoFinished)
+            {
+                _loadingCurrentLastActivityStepOneFinished = true;
+            }
+            else if (_loadingCurrentLastActivityStepOneFinished && !_loadingCurrentLastActivityStepTwoFinished)
+            {
+                _loadingCurrentLastActivityStepTwoFinished = true;
             }
         }
 
