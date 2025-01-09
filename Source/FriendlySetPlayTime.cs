@@ -34,7 +34,7 @@ namespace FriendlySetPlayTime
             {
                 yield return new GameMenuItem
                 {
-                    Description = "Set Play Time",
+                    Description = "(Friendly) Set Play Time",
                     // Note: Template with same name for args and actionArgs causes a compiler error. Propagation of values properly works regardless of different names.
                     Action = actionArgs =>
                     {
