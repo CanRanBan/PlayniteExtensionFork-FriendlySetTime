@@ -1,7 +1,7 @@
 Id: CanRanBan_Generic_FriendlySetPlayTime
 Name: Friendly Set Play Time
 Author: CanRanBan (Original version by erys)
-Version: 0.5
+Version: 0.6.0
 Module: FriendlySetPlayTime.dll
 Type: GenericPlugin
 Icon: Resources\FriendlySetPlayTimeIcon.ico
