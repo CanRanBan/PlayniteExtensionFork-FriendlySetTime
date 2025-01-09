@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Friendly Set Play Time for Playnite")]
-[assembly: AssemblyCopyright("Copyright © 2021-2022 - erys | 2022-2024 - CanRanBan")]
+[assembly: AssemblyCopyright("Copyright © 2021-2022 - erys | 2022-2025 - CanRanBan")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
