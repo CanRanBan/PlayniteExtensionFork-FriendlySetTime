@@ -4,7 +4,7 @@ Author: CanRanBan (Original version by erys)
 Version: 0.5
 Module: FriendlySetPlayTime.dll
 Type: GenericPlugin
-Icon: Resources\FriendlySetPlayTimeIcon.png
+Icon: Resources\FriendlySetPlayTimeIcon.ico
 Links:
   - Name: GitHub (Source code)
     Url: https://github.com/CanRanBan/PlayniteExtensionFork-FriendlySetPlayTime

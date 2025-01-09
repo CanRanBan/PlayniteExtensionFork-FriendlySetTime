@@ -71,7 +71,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FriendlySetPlayTimeIcon.png">
+    <None Include="Resources\FriendlySetPlayTimeIcon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
