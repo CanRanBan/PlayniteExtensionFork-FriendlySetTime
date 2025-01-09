@@ -82,9 +82,9 @@ namespace FriendlySetPlayTime
             _playniteAPI = playniteAPI;
             _selectedGame = selectedGame;
 
-            EnhancePlayTime(selectedGame);
-            EnhanceCompletionStatus(selectedGame);
-            EnhanceLastActivity(selectedGame);
+            EnhancePlayTime(_selectedGame);
+            EnhanceCompletionStatus(_selectedGame);
+            EnhanceLastActivity(_selectedGame);
         }
 
         private void EnhancePlayTime(Game selectedGame)
