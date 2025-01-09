@@ -22,18 +22,12 @@ namespace FriendlySetPlayTime
         {
             InitializeComponent();
 
-            DataContext = this;
-
             _logger = logger;
             _playniteAPI = playniteAPI;
             _selectedGame = selectedGame;
+            _enhancedGameData = new EnhancedGameData(_logger, _playniteAPI, _selectedGame);
 
-            _enhancedGameData = LoadCurrentGameData(_logger, _playniteAPI, _selectedGame);
-        }
-
-        private EnhancedGameData LoadCurrentGameData(ILogger logger, IPlayniteAPI playniteAPI, Game selectedGame)
-        {
-            return _enhancedGameData = new EnhancedGameData(logger, playniteAPI, selectedGame);
+            DataContext = _enhancedGameData;
         }
 
         private void CompletionStatusComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
