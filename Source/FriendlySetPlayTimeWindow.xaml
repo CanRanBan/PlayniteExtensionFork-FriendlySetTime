@@ -54,7 +54,7 @@
             <RadioButton GroupName="LastActivityRadioButtonGroup" x:Name="LastActivityRadioButtonToday" VerticalAlignment="Center" Margin="0,0,0,5" IsEnabled="True" IsChecked="False" Click="LastActivityRadioButtonToday_OnClick">Today</RadioButton>
             <StackPanel Orientation="Horizontal">
                 <RadioButton GroupName="LastActivityRadioButtonGroup" x:Name="LastActivityRadioButtonDatePicker" VerticalAlignment="Center" Margin="0,0,10,0" IsEnabled="True" IsChecked="False" Click="LastActivityRadioButtonDatePicker_OnClick">Selected Date:</RadioButton>
-                <DatePicker x:Name="LastActivityDatePicker" VerticalAlignment="Center" MinWidth="150" IsEnabled="True" SelectedDateChanged="LastActivityDatePicker_OnSelectedDateChanged"/>
+                <DatePicker x:Name="LastActivityDatePicker" VerticalAlignment="Center" MinWidth="150" IsEnabled="True" SelectedDateFormat="Long" SelectedDate="{Binding LastActivity}" SelectedDateChanged="LastActivityDatePicker_OnSelectedDateChanged"/>
             </StackPanel>
         </StackPanel>
 
