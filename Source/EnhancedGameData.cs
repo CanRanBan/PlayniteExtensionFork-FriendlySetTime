@@ -12,20 +12,61 @@ namespace FriendlySetPlayTime
         private readonly ILogger _logger;
         private readonly IPlayniteAPI _playniteAPI;
         private readonly Game _selectedGame;
+        private ulong _days;
+        private ulong _hours;
+        private ulong _minutes;
+        private ulong _seconds;
+        private string _completionStatus;
+        private List<string> _completionStatusList = new List<string>();
+        private DateTime _lastActivity;
 
         // Play Time
-        public ulong Days { get; set; }
-        public ulong Hours { get; set; }
-        public ulong Minutes { get; set; }
-        public ulong Seconds { get; set; }
+        public ulong Days
+        {
+            get => _days;
+            set => SetField(ref _days, value);
+        }
+
+        public ulong Hours
+        {
+            get => _hours;
+            set => SetField(ref _hours, value);
+        }
+
+        public ulong Minutes
+        {
+            get => _minutes;
+            set => SetField(ref _minutes, value);
+        }
+
+        public ulong Seconds
+        {
+            get => _seconds;
+            set => SetField(ref _seconds, value);
+        }
 
         // Completion Status
-        public string CompletionStatus { get; set; }
-        public List<string> CompletionStatusList { get; set; } = new List<string>();
+        public string CompletionStatus
+        {
+            get => _completionStatus;
+            set => SetField(ref _completionStatus, value);
+        }
+
+        public List<string> CompletionStatusList
+        {
+            get => _completionStatusList;
+            set => SetField(ref _completionStatusList, value);
+        }
+
         internal Dictionary<string, Guid> CompletionStatusDictionary { get; set; } = new Dictionary<string, Guid>();
 
         // Last Activity
-        internal DateTime LastActivity { get; set; }
+        public DateTime LastActivity
+        {
+            get => _lastActivity;
+            set => SetField(ref _lastActivity, value);
+        }
+
         internal string DateLongAndTimeLong { get; set; }
         internal string DateLongAndTimeShort { get; set; }
         internal string DateShortAndTimeLong { get; set; }
